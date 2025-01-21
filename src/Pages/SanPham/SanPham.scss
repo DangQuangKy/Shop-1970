@@ -152,12 +152,21 @@
   .btn-next{
     display: flex;
     justify-content: space-evenly;
+    padding: 10px;
     .btn1{
-        background-color: chocolate;
         border-radius: 5px;
+        background: #007bff;
+        color: #fff;
+        &:hover{
+            background: #0056b3;
+        }
     }
     .btn2{
-        background-color: cornflowerblue;
         border-radius: 5px;
+        background: #28a745;
+        color: #fff;
+        &:hover{
+            background: #1c7c31;
+        }
     }
   }

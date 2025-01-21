@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
 import { Modal } from "antd";
+import CartDetail from "./CartDetail/CartDetail";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -31,7 +32,7 @@ const Cart = () => {
     setIsModalVisible(false);
     setItemToRemove(null);
   }
- 
+
   const handleQuantityChange = (id, newQuantity) => {
     setCart((prevCart) => {
       const updatedCart = prevCart.map((item) => {
@@ -44,7 +45,7 @@ const Cart = () => {
       return updatedCart;
     });
   };
-  
+
   const handleConfirmRemove = () => {
     if (itemToRemove) {
       setCart((prevCart) => {
@@ -60,14 +61,14 @@ const Cart = () => {
   const calculateTotal = () => {
     return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
-  if(cart.length === 0) {
+  if (cart.length === 0) {
     return (
       <div className="empty-cart">
         <h2>Giỏ hàng của bạn đang trống.</h2>
         <div>
-        <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png" alt="" />
+          <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png" alt="" />
         </div>
-        <Link to="/">{"<< Tiếp tục mua sắm"}</Link>
+        <Link to="/sanpham">{"<< Tiếp tục mua sắm"}</Link>
       </div>
     )
   }
@@ -85,49 +86,21 @@ const Cart = () => {
               <th>Tên sản phẩm</th>
               <th>Giá</th>
               <th>Số lượng</th>
-              <th>Xóa giỏ hàng</th> 
+              <th>Xóa giỏ hàng</th>
               <th>Tổng tiền</th>
             </tr>
           </thead>
           <tbody>
-            {cart.map((item) => (
-              <tr key={item.id}>
-                <td>
-                  <img src={item.image} alt={item.name} className="product-image" />
-                </td>
-                <td>{item.name}</td>
-                <td>
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    value={item.quantity}
-                    onChange={(e) => {
-                      const newQuantity = parseInt(e.target.value, 10);
-                      handleQuantityChange(item.id, newQuantity);
-                    }}
-                    min="1"
-                  />
-                </td>
-                <td><button className="btn-delete" onClick={() => handleOpenModal(item.id)}>Xóa</button>
-                </td>
-                <td>
-                  {(item.price * item.quantity).toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </td>
-               
-              </tr>
-            ))}
+            <CartDetail
+              key={cart.id}
+              cart={cart}
+              handleOpenModal={handleOpenModal}
+              handleQuantityChange={handleQuantityChange}
+            />
           </tbody>
           <tfoot>
             <tr>
-              <td colSpan="5">Tổng tất cả sản phẩm:</td> 
+              <td colSpan="5">Tổng tất cả sản phẩm:</td>
               <td>
                 {calculateTotal().toLocaleString("vi-VN", {
                   style: "currency",
@@ -142,15 +115,15 @@ const Cart = () => {
         </Link>
       </div>
       <Modal
-      title="Xác nhận xóa"
-      open={isModalVisible}
-      onOk={handleConfirmRemove}
-      onCancel={handleCanelModal}
-      okText="Xác nhận"
-      cancelText="Hủy"
-    >
-      <p>Bạn có chắc chắn muốn xóa sản phẩm này không?</p>
-    </Modal>
+        title="Xác nhận xóa"
+        open={isModalVisible}
+        onOk={handleConfirmRemove}
+        onCancel={handleCanelModal}
+        okText="Xác nhận"
+        cancelText="Hủy"
+      >
+        <p>Bạn có chắc chắn muốn xóa sản phẩm này không?</p>
+      </Modal>
     </>
   );
 };

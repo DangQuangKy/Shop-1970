@@ -3,9 +3,14 @@ import "./Cart.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
+import { Modal } from "antd";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [itemToRemove, setItemToRemove] = useState(null);
+  useDocumentTitle("Thông tin giỏ hàng")
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
@@ -16,9 +21,17 @@ const Cart = () => {
       })));
     }
   }, []);
- useEffect(() => {
-  document.title = "Thông tin giỏ hàng"
- },[])
+
+  const handleOpenModal = (id) => {
+    setIsModalVisible(true);
+    setItemToRemove(id);
+  }
+
+  const handleCanelModal = () => {
+    setIsModalVisible(false);
+    setItemToRemove(null);
+  }
+ 
   const handleQuantityChange = (id, newQuantity) => {
     setCart((prevCart) => {
       const updatedCart = prevCart.map((item) => {
@@ -31,18 +44,33 @@ const Cart = () => {
       return updatedCart;
     });
   };
-  const handleRemoveItem = (id) => {
-    setCart((prevCart) => {
-      const updatedCart = prevCart.filter((item) => item.id !== id);
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      return updatedCart;
-    });
+  
+  const handleConfirmRemove = () => {
+    if (itemToRemove) {
+      setCart((prevCart) => {
+        const updatedCart = prevCart.filter((item) => item.id !== itemToRemove);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        return updatedCart;
+      });
+      setIsModalVisible(false);
+      setItemToRemove(null);
+    }
   };
 
   const calculateTotal = () => {
     return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
-
+  if(cart.length === 0) {
+    return (
+      <div className="empty-cart">
+        <h2>Giỏ hàng của bạn đang trống.</h2>
+        <div>
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png" alt="" />
+        </div>
+        <Link to="/">{"<< Tiếp tục mua sắm"}</Link>
+      </div>
+    )
+  }
   return (
     <>
       <nav className="nav-cart">
@@ -85,7 +113,7 @@ const Cart = () => {
                     min="1"
                   />
                 </td>
-                <td><button className="btn-delete" onClick={() => handleRemoveItem(item.id)}>Xóa</button>
+                <td><button className="btn-delete" onClick={() => handleOpenModal(item.id)}>Xóa</button>
                 </td>
                 <td>
                   {(item.price * item.quantity).toLocaleString("vi-VN", {
@@ -113,6 +141,16 @@ const Cart = () => {
           <div className="btn-pay">Xác nhận giỏ hàng</div>
         </Link>
       </div>
+      <Modal
+      title="Xác nhận xóa"
+      open={isModalVisible}
+      onOk={handleConfirmRemove}
+      onCancel={handleCanelModal}
+      okText="Xác nhận"
+      cancelText="Hủy"
+    >
+      <p>Bạn có chắc chắn muốn xóa sản phẩm này không?</p>
+    </Modal>
     </>
   );
 };

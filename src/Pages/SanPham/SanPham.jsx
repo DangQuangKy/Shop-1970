@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { addProduct } from "../../Redux/slice/cartSlice";
 import Notification from "../../Components/Notification/Notification";
 import Card from "../../Components/Card/Card";
+import { useNavigate } from "react-router-dom";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 function SanPham() {
   const [products, setProducts] = useState([]);
@@ -16,6 +18,8 @@ function SanPham() {
   const [notificationMessage, setNotificationMessage] = useState(''); // Nội dung thông báo
   const dispatch = useDispatch();
   const CartProducts = useSelector(state => state.cart.CartArr);
+  const navigate = useNavigate()
+  useDocumentTitle("Trang sản phẩm")
 
   useEffect(() => {
     fetch("http://localhost:3002/products")
@@ -26,10 +30,6 @@ function SanPham() {
       });
   }, []);
 
-  useEffect(() => {
-    document.title = "Trang Sản phẩm"
-  }, [])
-
   // hiển thị bảng sắp xếp
   const handleClick = () => {
     setIsRotated(!isRotated);
@@ -37,7 +37,7 @@ function SanPham() {
   };
   // click vào sẽ hiển thị ra trang tương ứng 
   const handleProductClick = (id) => {
-    window.location.href = `/SanPham/${id}`;
+    navigate(`/sanpham/${id}`)
   };
   // sắp xếp theo tiền từ thấp đến cao
   const sortByPriceAscending = () => {
@@ -61,7 +61,9 @@ function SanPham() {
   // hành động thêm giỏ hàng sẽ hiện ra thông báo
   const handleAddToCart = (product) => {
     dispatch(addProduct(product));
-    setNotificationMessage(`Đã thêm ${product.name} vào giỏ hàng!`);
+    setNotificationMessage(
+      <span>Đã thêm <span style={{color: '#B22222'}}>{product.name}</span> vào giỏ hàng!</span>
+    );
     setShowNotification(true);
   };
 

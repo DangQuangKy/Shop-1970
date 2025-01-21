@@ -10,35 +10,6 @@ const Login = ({ closeModal }) => {
   const signIn = useSignIn();
   const navigate = useNavigate();
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await axios.get("http://localhost:3002/users", {
-  //       params: {
-  //         username,
-  //         password,
-  //       },
-  //     });
-
-      
-  //     const users = response.data;
-  //     if (users.length > 0) {
-  //       const user = users[0];
-  //       signIn({
-  //         token: "fake-token",
-  //         expiresIn: 3600,
-  //         tokenType: "Bearer",
-  //         authState: { user },
-  //       });
-  //       alert(`Logged in as ${user.role}`);
-  //       navigate("/dashboard");
-  //     } else {
-  //       alert("Invalid email or password");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error logging in:", error);
-  //   }
-  // };
   const handleLogin = async () => {
     const response = await fetch('http://localhost:3002/users', {
       method: 'GET',

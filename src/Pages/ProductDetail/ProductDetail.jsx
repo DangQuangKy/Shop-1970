@@ -12,10 +12,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./ProductDetail.scss";
-import Rating from "../../Components/Rating/Rating";
 import { addProduct } from "../../Redux/slice/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Notification from "../../Components/Notification/Notification";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
@@ -24,7 +24,7 @@ function ProductDetail() {
   const [notificationMessage, setNotificationMessage] = useState(""); // Nội dung thông báo
   const dispatch = useDispatch();
   const CartProducts = useSelector((state) => state.cart.CartArr);
-
+  useDocumentTitle("Trang Sản phẩm")
   useEffect(() => {
     async function fetchData() {
       try {
@@ -38,9 +38,6 @@ function ProductDetail() {
     fetchData();
   }, [id]);
 
-  useEffect(() => {
-    document.title = "Trang Sản phẩm"
-  },[])
   const increment = () => {
     setCount(count + 1);
   };
@@ -49,13 +46,14 @@ function ProductDetail() {
       setCount(count - 1);
     }
   };
-  const [ratings, setRatings] = useState([0, 0, 0, 90, 100]);
   // hành động thêm giỏ hàng sẽ hiện ra thông báo
   const handleAddToCart = (product) => {
-    dispatch(addProduct(product));
-    setNotificationMessage(`Đã thêm ${product.name} vào giỏ hàng!`);
-    setShowNotification(true);
-  };
+     dispatch(addProduct(product));
+     setNotificationMessage(
+       <span>Đã thêm <span style={{color: '#B22222'}}>{product.name}</span> vào giỏ hàng!</span>
+     );
+     setShowNotification(true);
+   };
 
   return (
     <div>
@@ -173,7 +171,6 @@ function ProductDetail() {
                     <FontAwesomeIcon icon={faStar} />
                   </div>
                 </div>
-                
               </div>
             </div>
           </>

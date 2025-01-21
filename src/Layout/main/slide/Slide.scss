@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+.slide-1 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .slide-1 img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .slide-title {
+    position: absolute;
+    top: 40%;
+    left: 50px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .slide-title-1{
+    position: absolute;
+    top: 35%;
+    right: 270px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+  }
+  

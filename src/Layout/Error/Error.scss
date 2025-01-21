@@ -1,0 +1,53 @@
+$primary-color: #ff6b6b;
+$background-color: #f7f7f7;
+$text-color: #333;
+$link-color: #ff6b6b;
+
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $background-color;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.error-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 6rem;
+    color: $primary-color;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: $text-color;
+    margin: 1rem 0;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: $text-color;
+  }
+
+  .home-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: $link-color;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($link-color, 10%);
+    }
+  }
+}

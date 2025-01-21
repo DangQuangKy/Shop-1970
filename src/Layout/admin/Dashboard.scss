@@ -1,0 +1,115 @@
+.dashboard {
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 70px;
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #c82333;
+    }
+  
+    .product-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+      th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+  
+      th {
+        background-color: #0056b3;
+      }
+  
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+  
+      button {
+        margin-right: 5px;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+  
+        &:last-child {
+          background-color: #dc3545;
+  
+          &:hover {
+            background-color: #c82333;
+          }
+        }
+      }
+    }
+  
+    .edit-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+  
+      h2 {
+        margin-bottom: 20px;
+      }
+  
+      label {
+        display: block;
+        margin-bottom: 10px;
+  
+        input {
+          width: 100%;
+          padding: 8px;
+          margin-top: 5px;
+          border: 1px solid #ddd;
+          border-radius: 3px;
+        }
+      }
+  
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+  
+        &:last-child {
+          background-color: #6c757d;
+          margin-left: 10px;
+  
+          &:hover {
+            background-color: #5a6268;
+          }
+        }
+      }
+    }
+  }
+  .new{
+    width: 90%;
+    border-radius: 5px;
+    height: 30px;
+    outline: none;
+    border: 1px solid #0056b3;
+  }
+  .btn-add{
+    margin-left: 30px;
+  }

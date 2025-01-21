@@ -1,0 +1,180 @@
+.nav-checkout{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #f2f2f2;
+    margin-top: 70px;
+    font-size: 13px;
+    a{
+      text-decoration: none;
+      margin-left: 20px;
+      color: #000;
+    }
+    .active{
+      font-weight: 600;
+    }
+  }
+.checkout-container{
+    background-color: #f2f2f2;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    height: auto;
+    .cart-list{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 90%;
+        background-color: white;
+        margin-top: 20px;
+        margin-left: 20px;
+        height: auto;
+        max-height: 650px;
+        overflow-y: auto;
+        h2{
+            text-align: center;
+        }
+        .cart-item{
+            display: flex;
+            gap: 50px;
+            padding: 20px;
+            .product-image{
+                width: 150px;
+                height: 200px;
+            }
+            .item-name{
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .item-total{
+                font-size: 18px;
+                font-weight: 600;
+                color: red;
+            }
+        }
+    }
+    .total{
+        flex: 1;
+        background-color: white;
+        margin-top: 20px;
+        margin-right: 20px;
+        height: auto;
+        .total-1{
+            margin: 20px;
+            display: flex;
+            justify-content: space-between;
+            .red{
+                color: red;
+                font-size: 18px;
+            }
+        }
+        .line{
+            height: 1px;
+            width: 80%;
+            background-color: #ccc;
+            margin-bottom: 20px;
+            margin-left: 40px;
+        }
+    }
+    .btn-buy{
+        border: 1px solid #111c2d;
+        background-color: #111c2d;
+        color: #ccc;
+        width: 80%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        margin-top: 30px;
+        margin-left: 40px;
+        font-size: 18px;
+        &:hover{
+            color: #111c2d;
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+    }
+    .come-back{
+        margin-top: 30px;
+        margin-left: 20px;
+        a{
+            color: #111c2d;
+            text-decoration: none;
+            font-size: 15px;
+        }
+    }
+}
+.order-info{
+    margin-top: 30px;
+    .order-title{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        .title-1{
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .title-2{
+            font-size: 15px;
+            span{
+                color: #d41a1a;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+    form{
+        margin: 20px;
+        .form-group{
+            margin-bottom: 20px;
+            .flex-2{
+                margin-bottom: 30px;
+            }
+        }
+        .form-group input {
+            width: 100%;
+            height: 40px;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+    }
+}
+.inner{
+    margin-bottom: 30px;
+    label{
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+    textarea{
+        height: auto;
+        border-color: #e1e1e1;
+        display: block;
+        width: 90%;
+        padding: 8px 12px;
+        font-size: 14px;
+        margin-left: 20px;
+        font-weight: 400;
+        line-height: 15px;
+        color: #495057;
+        background-color: #fff;
+        border: 1px solid #212529;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        overflow: auto;
+        resize: vertical;
+        margin-bottom: 10px;
+    }
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .error-1{
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
+  }

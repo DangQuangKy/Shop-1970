@@ -1,0 +1,60 @@
+.gioi-thieu{
+    margin-top: 70px;
+    .nav-gioi-thieu{
+        width: 100%;
+        height: 50px;
+        background-color: #f2f2f2;
+        line-height: 50px;
+        font-size: 14px;
+        a{
+            text-decoration: none;
+            color: #000;
+            margin-left: 20px;
+        }
+        .active{
+             font-weight: 600;
+        }
+    }
+    .gioi-thieu-title{
+        margin-top: 20px;
+        margin-left: 20px;
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .gioi-thieu-content{
+        margin-top: 20px;
+        width: 96%;
+        height: auto;
+        background-color: #f2f2f2;
+        margin-left: 20px;
+        .nd-content{
+            box-sizing: border-box;
+            width: 96%;
+            display: block;
+            padding-left: 25px;
+            padding-top: 10px;
+            line-height: 25px;
+            padding-bottom: 30px;
+            .image{
+                text-align: center;
+                display: block;
+                img{
+                    width: 700px;
+                    height: 500px;
+                }
+            }
+        }
+    }
+    .nd-footer{
+        margin-top: 20px;
+        margin-left: 20px;
+        font-size: 14px;
+        text-align: center;
+        justify-content: center;
+        span{
+            font-weight: 400;
+            font-size: 20px;
+        }
+    }
+    
+}

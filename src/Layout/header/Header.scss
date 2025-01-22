@@ -22,8 +22,9 @@
         flex-grow: 1;
         > .menu{
             > ul{
+                display: flex;
                > li{
-                    display: inline;
+                    display: inline-flex;
                     margin: 0 10px;
                     position: relative;
                     list-style: none;
@@ -43,7 +44,7 @@
                     }
                 }
                 > li > a{
-                    font-size: 22px;
+                    font-size: 20px;
                     text-decoration: none;
                     color: #ddd;
                     text-transform: uppercase;

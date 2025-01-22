@@ -134,10 +134,9 @@
                 .btn{
                     line-height: 35px;
                     text-align: center;
-                    width: 120px;
+                    width: 100px;
                     height: 35px;
                     text-transform: uppercase;
-                    color: #080408;
                     cursor: pointer;
                     margin-top: 30px;
                 }
@@ -155,7 +154,7 @@
     padding: 10px;
     .btn1{
         border-radius: 5px;
-        background: #007bff;
+        background: gray;
         color: #fff;
         &:hover{
             background: #0056b3;
@@ -163,7 +162,7 @@
     }
     .btn2{
         border-radius: 5px;
-        background: #28a745;
+        background: gray;
         color: #fff;
         &:hover{
             background: #1c7c31;

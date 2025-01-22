@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
 import { Modal } from "antd";
-import CartDetail from "./CartDetail/CartDetail";
+import CartDetail from "./CartDetail.jsx/CartDetail";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -61,6 +61,7 @@ const Cart = () => {
   const calculateTotal = () => {
     return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
+  
   if (cart.length === 0) {
     return (
       <div className="empty-cart">

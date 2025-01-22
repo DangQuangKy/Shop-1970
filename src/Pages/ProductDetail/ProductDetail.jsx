@@ -48,17 +48,17 @@ function ProductDetail() {
   };
   // hành động thêm giỏ hàng sẽ hiện ra thông báo
   const handleAddToCart = (product) => {
-     dispatch(addProduct(product));
-     setNotificationMessage(
-       <span>Đã thêm <span style={{color: '#B22222'}}>{product.name}</span> vào giỏ hàng!</span>
-     );
-     setShowNotification(true);
-   };
+    dispatch(addProduct(product));
+    setNotificationMessage(
+      <span>Đã thêm <span style={{ color: '#B22222' }}>{product.name}</span> vào giỏ hàng!</span>
+    );
+    setShowNotification(true);
+  };
 
   return (
     <div>
       {product.map((product) => {
-        const totalPrice = product.price * count;
+        const totalPrice = (product.price * (1 - product.discount / 100)) * count;
         const overviewLines = product.overview
           ? product.overview.split("\n")
           : [];
@@ -88,7 +88,17 @@ function ProductDetail() {
                   <FontAwesomeIcon icon={faStar} />
                 </div>
                 <p className="font-size">
-                  {totalPrice.toLocaleString("vi-VN")} <span>VND</span>
+                  <p className="price">
+                    {product.discount > 0 ? (
+                      <>
+                        <span className="discount-percentage">{product.discount}%</span>
+                        <span className="original-price">{product.price.toLocaleString()} VND</span>
+                        <span className="discount-price">{totalPrice.toLocaleString("vi-VN").toLocaleString()} VND</span>
+                      </>
+                    ) : (
+                      <span className="final-price">{((product.price)*count).toLocaleString()} VND</span>
+                    )}
+                  </p>
                 </p>
                 <p>Mã sản phẩm: {product.description}</p>
                 <div className="pro-buy">

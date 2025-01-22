@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Áo Sơ Mi Vải Cotton Linen Cổ Trụ Ngắn Tay",
       "price": 1600000,
-      "cost": 2000000,
+      "discount": 20,
       "description": "M6TW71CXHP",
       "image": "https://cdn1332.cdn-template-4s.com/thumbs/products/screenshot_23_thumb_350.png",
       "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt. \nĐường cắt đều đặn, thoải mái theo xu hướng. Cổ áo cài cúc đa năng. \nRộng rãi ở vai và cơ thể, với những kiểu dáng bóng mượt ở cánh tay và ngực.",
@@ -15,6 +15,7 @@
       "id": "2",
       "name": "Áo Sơ Mi Cổ Mở Dài Tay",
       "price": 500000,
+      "discount": 10,
       "description": "A1BC23D4EF",
       "image": "https://cdn1332.cdn-template-4s.com/thumbs/products/screenshot_22_thumb_350.png",
       "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt. \nĐường cắt đều đặn, thoải mái theo xu hướng. Cổ áo cài cúc đa năng. \nRộng rãi ở vai và cơ thể, với những kiểu dáng bóng mượt ở cánh tay và ngực.",
@@ -44,6 +45,7 @@
     {
       "id": "5",
       "name": "Áo Sơ Mi Extra Fine Cotton Ngắn Tay",
+      "discount": 25,
       "price": 700000,
       "description": "S5TU67VW89",
       "image": "https://cdn1332.cdn-template-4s.com/thumbs/products/vn-11134207-7r98o-lllcmcyiez0ce2_tn_thumb_350.webp",
@@ -55,8 +57,9 @@
       "id": "7",
       "name": "Sơ Mi Vải Cotton Modal In Họa Tiết Cổ Mở",
       "price": 1000000,
+      "discount": 55,
       "description": "X0YZ12AB",
-      "image": "https://routine.vn/media/amasty/webp/catalog/product/cache/5b5632a96492396f42c72e22fdd64763/a/o/ao-nam-10f23shl090_light_blue_1__1_1_jpg.webp",
+      "image": "https://media.routine.vn/1200x1500/prod/look/10f24shs035-10f23ves001-10f24pca002-10f24cap001-8-jpg-77by.webp",
       "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt. \nĐường cắt đều đặn, thoải mái theo xu hướng. \nCổ áo cài cúc đa năng. \nRộng rãi ở vai và cơ thể, với những kiểu dáng bóng mượt ở cánh tay và ngực.",
       "material": "100% Cotton",
       "instruct": "Giặt máy nước lạnh, Giặt khô, Không sấy "
@@ -75,6 +78,7 @@
       "id": "9",
       "name": "Áo Sơ Mi Tay Lỡ Dáng Rộng",
       "price": 900000,
+      "discount": 50,
       "description": "H1IJ23KL45",
       "image": "https://cdn1332.cdn-template-4s.com/thumbs/products/screenshot_14_thumb_350.png",
       "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt. \nĐường cắt đều đặn, thoải mái theo xu hướng. \nCổ áo cài cúc đa năng. \nRộng rãi ở vai và cơ thể, với những kiểu dáng bóng mượt ở cánh tay và ngực.",
@@ -85,6 +89,7 @@
       "id": "10",
       "name": "Áo Sơ Mi Oxford Kẻ Sọc Dáng Ôm Dài Tay",
       "price": 1100000,
+      "discount": 5,
       "description": "M6NO78PQ12",
       "image": "https://cdn1332.cdn-template-4s.com/thumbs/products/screenshot_16_thumb_350.png",
       "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt. \nĐường cắt đều đặn, thoải mái theo xu hướng. \nCổ áo cài cúc đa năng. \nRộng rãi ở vai và cơ thể, với những kiểu dáng bóng mượt ở cánh tay và ngực.",
@@ -96,7 +101,7 @@
       "name": "Áo Sơ Mi Vải Cotton Linen Cổ Trụ Ngắn Tay",
       "price": 1300000,
       "description": "R3ST45UV67",
-      "image": "https://routine.vn/media/amasty/webp/catalog/product/cache/5b5632a96492396f42c72e22fdd64763/a/o/ao-so-mi-jean-unisex-26-10s24dshu001_d_indigo_1__2_1_jpg.webp",
+      "image": "https://media.routine.vn/1200x1500/prod/variant/10f24pca002-white-sand-1-jpg-rowd.webp",
       "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt. \nĐường cắt đều đặn, thoải mái theo xu hướng. \nCổ áo cài cúc đa năng. \nRộng rãi ở vai và cơ thể, với những kiểu dáng bóng mượt ở cánh tay và ngực.",
       "material": "100% Cotton",
       "instruct": "Giặt máy nước lạnh, Giặt khô, Không sấy "
@@ -106,7 +111,7 @@
       "name": "Sơ Mi Nam Tay Ngắn Trơn Form Loose",
       "price": 1500000,
       "description": "W8XY90AB12",
-      "image": "https://routine.vn/media/amasty/webp/catalog/product/cache/5b5632a96492396f42c72e22fdd64763/a/o/ao-polo-nam-26-10s23pol012_black_3__1_jpg.webp",
+      "image": "https://media.routine.vn/1200x1500/prod/media/10f24kni011-black-ao-len-nam-model-1-jpg-1aju.webp",
       "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt. \nĐường cắt đều đặn, thoải mái theo xu hướng. \nCổ áo cài cúc đa năng. \nRộng rãi ở vai và cơ thể, với những kiểu dáng bóng mượt ở cánh tay và ngực.",
       "material": "100% Cotton",
       "instruct": "Giặt máy nước lạnh, Giặt khô, Không sấy "
@@ -115,32 +120,45 @@
       "id": "13",
       "name": "Sơ Mi Nam Trơn Rayon Dây Rút Form Loose",
       "price": 1500000,
+      "discount": 35,
       "description": "E3FG45HI67",
-      "image": "https://routine.vn/media/amasty/webp/catalog/product/cache/5b5632a96492396f42c72e22fdd64763/1/0/10s23shs023_beige_1__2_jpg.webp",
+      "image": "https://media.routine.vn/1200x1500/prod/product/10f23ves002-lawel-oak-ao-vest-nam-1-jpg-fhv4.webp",
       "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt. \nĐường cắt đều đặn, thoải mái theo xu hướng. \nCổ áo cài cúc đa năng. \nRộng rãi ở vai và cơ thể, với những kiểu dáng bóng mượt ở cánh tay và ngực.",
       "material": "100% Cotton",
-      "instruct": "Giặt máy nước lạnh, Giặt khô, Không sấy "
+      "instruct": "Giặt máy nước lạnh, Giặt khô, Không sấy"
     },
     {
       "id": "6357",
       "name": "Áo sơ mi trắng dài tay ",
       "price": 1400000,
       "description": "E1ADV1P21",
-      "image": "https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/a/r/ar230315dt._08_2.jpg"
+      "image": "https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/a/r/ar230315dt._08_2.jpg",
+      "discount": 15,
+      "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt.",
+      "material": "98% Cotton, 2% Spandex",
+      "instruct": "Giặt máy nước lạnh, Giặt khô, Không sấy"
     },
     {
       "id": "1d1f",
       "name": "Áo sơ mi ngắn tay ",
       "price": 700000,
       "description": "AB240010N",
-      "image": "https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/a/b/ab240010n._1.jpg"
+      "image": "https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/a/b/ab240010n._1.jpg",
+      "discount": 15,
+      "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt.",
+      "material": "98% Cotton, 2% Spandex",
+      "instruct": "Giặt máy nước lạnh, Giặt khô, Không sấy"
     },
     {
       "id": "02a7",
       "name": "Áo sơ mi trắng nam",
       "price": 800000,
       "description": "NB78ASA90",
-      "image": "https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/a/r/ar230334nt._37.jpg"
+      "image": "https://owen.cdn.vccloud.vn/media/catalog/product/cache/01755127bd64f5dde3182fd2f139143a/a/r/ar230334nt._37.jpg",
+      "discount": 15,
+      "overview": "Cổ áo cập nhật vẫn giữ nguyên hình dạng sau khi giặt. \nLớp lót được cải tiến giúp giảm nếp nhăn ở cổ áo, vạt áo và cổ tay áo sau khi giặt.",
+      "material": "98% Cotton, 2% Spandex",
+      "instruct": "Giặt máy nước lạnh, Giặt khô, Không sấy"
     }
   ],
   "news": [

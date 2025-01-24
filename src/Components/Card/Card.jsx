@@ -1,8 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Card.scss'
-import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-
-const Card = ({ sortedProducts, handleAddToCart, handleProductClick }) => {
+const Card = ({ sortedProducts, handleProductClick }) => {
   return (
     <ul>
       {sortedProducts.map((product) => (
@@ -20,10 +17,6 @@ const Card = ({ sortedProducts, handleAddToCart, handleProductClick }) => {
               <span className="final-price">{product.price.toLocaleString()} VND</span>
             )}
           </p>
-          <div className="btn-next">
-            <div className="btn btn2" onClick={() => handleProductClick(product.id)}><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
-            <div className="btn btn1" onClick={() => handleAddToCart(product)}>Thêm vào <FontAwesomeIcon icon={faCartShopping} /></div>
-          </div>
         </li>
       ))}
     </ul>

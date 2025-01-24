@@ -58,15 +58,6 @@ function SanPham() {
     setIsListVisible(false);
   };
 
-  // hành động thêm giỏ hàng sẽ hiện ra thông báo
-  const handleAddToCart = (product) => {
-    dispatch(addProduct(product));
-    setNotificationMessage(
-      <span>Đã thêm <span style={{color: '#B22222'}}>{product.name}</span> vào giỏ hàng!</span>
-    );
-    setShowNotification(true);
-  };
-
   return (
     <div className="sanpham">
       <div className="wrapper">
@@ -126,17 +117,11 @@ function SanPham() {
           <div className="main-right">
             <Card
               sortedProducts={sortedProducts}
-              handleAddToCart={handleAddToCart}
               handleProductClick={handleProductClick}
             />
           </div>
         </div>
       </div>
-      <Notification
-        message={notificationMessage}
-        show={showNotification}
-        onClose={() => setShowNotification(false)}
-      />
     </div>
   );
 }

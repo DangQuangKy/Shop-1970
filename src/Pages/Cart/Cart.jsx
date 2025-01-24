@@ -59,7 +59,15 @@ const Cart = () => {
   };
 
   const calculateTotal = () => {
-    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return cart.reduce((acc, item) => {
+      // Tính giá sau discount cho mỗi sản phẩm
+      const discountedPrice = item.discount > 0
+        ? item.price * (1 - item.discount / 100)
+        : item.price;
+  
+      // Cộng dồn tổng giá trị (discountedPrice * số lượng)
+      return acc + discountedPrice * item.quantity;
+    }, 0);
   };
   
   if (cart.length === 0) {
@@ -85,6 +93,7 @@ const Cart = () => {
             <tr>
               <th>Hình ảnh</th>
               <th>Tên sản phẩm</th>
+              <th>Size</th>
               <th>Giá</th>
               <th>Số lượng</th>
               <th>Xóa giỏ hàng</th>
@@ -101,12 +110,9 @@ const Cart = () => {
           </tbody>
           <tfoot>
             <tr>
-              <td colSpan="5">Tổng tất cả sản phẩm:</td>
+              <td colSpan="6">Tổng tất cả sản phẩm:</td>
               <td>
-                {calculateTotal().toLocaleString("vi-VN", {
-                  style: "currency",
-                  currency: "VND",
-                })}
+                {calculateTotal().toLocaleString('vi')} VND
               </td>
             </tr>
           </tfoot>

@@ -22,6 +22,7 @@ function ProductDetail() {
   const [count, setCount] = useState(1);
   const [showNotification, setShowNotification] = useState(false); // Trạng thái thông báo
   const [notificationMessage, setNotificationMessage] = useState(""); // Nội dung thông báo
+  const [selectedSize, setSelectedSize] = useState(null)
   const dispatch = useDispatch();
   const CartProducts = useSelector((state) => state.cart.CartArr);
   useDocumentTitle("Trang Sản phẩm")
@@ -46,19 +47,36 @@ function ProductDetail() {
       setCount(count - 1);
     }
   };
+   // size
+   const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
   // hành động thêm giỏ hàng sẽ hiện ra thông báo
   const handleAddToCart = (product) => {
-    dispatch(addProduct(product));
+    const discountedPrice = product.discount > 0
+    ? product.price * (1 - product.discount / 100)
+    : product.price;
+
+    const totalPrice =  discountedPrice * count
+    dispatch(addProduct ({
+      id: product.id,
+      name: product.name,
+      quantity: count,
+      price: totalPrice,
+      size: selectedSize,
+     ...product,
+    }));
     setNotificationMessage(
       <span>Đã thêm <span style={{ color: '#B22222' }}>{product.name}</span> vào giỏ hàng!</span>
     );
     setShowNotification(true);
   };
 
+ 
+
   return (
     <div>
       {product.map((product) => {
-        const totalPrice = (product.price * (1 - product.discount / 100)) * count;
         const overviewLines = product.overview
           ? product.overview.split("\n")
           : [];
@@ -93,14 +111,25 @@ function ProductDetail() {
                       <>
                         <span className="discount-percentage">{product.discount}%</span>
                         <span className="original-price">{product.price.toLocaleString()} VND</span>
-                        <span className="discount-price">{totalPrice.toLocaleString("vi-VN").toLocaleString()} VND</span>
+                        <span className="discount-price">{((product.price * (1 - product.discount / 100)) * count).toLocaleString()} VND</span>
                       </>
                     ) : (
-                      <span className="final-price">{((product.price)*count).toLocaleString()} VND</span>
+                      <span className="final-price">{((product.price) * count).toLocaleString()} VND</span>
                     )}
                   </p>
                 </p>
                 <p>Mã sản phẩm: {product.description}</p>
+                <div className="size-options">
+                  {["S", "M", "L", "XL", "XXL"].map((size) => (
+                    <button
+                      key={size}
+                      className={`size-button ${selectedSize === size ? 'selected' : ''}`}
+                      onClick={() => handleSizeClick(size)}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
                 <div className="pro-buy">
                   <div className="pro-quantity">
                     <span
@@ -117,8 +146,8 @@ function ProductDetail() {
                       <FontAwesomeIcon icon={faPlus} />
                     </span>
                   </div>
-                  <div className="btn-buy">
-                    <Link onClick={() => handleAddToCart(product)}>
+                  <div className="btn-buy" onClick={() => handleAddToCart(product)}>
+                    <Link>
                       Thêm giỏ hàng
                     </Link>
                     <Notification

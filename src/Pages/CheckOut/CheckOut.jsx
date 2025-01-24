@@ -5,6 +5,7 @@ import { faAngleRight, faArrowLeftLong } from "@fortawesome/free-solid-svg-icons
 import { Link, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import Login from "../LogIn/LogIn";
+import useDocumentTitle from "../../Hooks/useDocumentTitle";
 
 Modal.setAppElement("#root");
 
@@ -17,8 +18,10 @@ const Checkout = () => {
     address: "",
     note: ""
   });
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  useDocumentTitle("Thông tin đơn hàng")
 
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
@@ -32,11 +35,6 @@ const Checkout = () => {
     }
   }, []);
 
-  useEffect(() => {
-    document.title = "Thông tin đơn hàng";
-  }, []);
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -44,8 +42,15 @@ const Checkout = () => {
     setModalIsOpen(false);
   };
 
-  const calculateTotal = () => {
-    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const calculateTotal = () => {
+    return cart.reduce((acc, item) => {
+      // Tính giá sau discount cho mỗi sản phẩm
+      const discountedPrice = item.discount > 0
+        ? item.price * (1 - item.discount / 100)
+        : item.price;
+      // Cộng dồn tổng giá trị (discountedPrice * số lượng)
+      return acc + discountedPrice * item.quantity;
+    }, 0);
   };
 
   const handleChange = (e) => {
@@ -91,48 +96,45 @@ const Checkout = () => {
       <div className="checkout-container">
         <div className="cart-list">
           <h2>Thông tin đặt hàng</h2>
-          {cart.map((item) => (
-            <div key={item.id} className="cart-item">
-              <img src={item.image} alt={item.name} className="product-image" />
-              <div className="item-details">
-                <p className="item-name">{item.name}</p>
-                <p className="item-quantity">Số lượng đặt: {item.quantity}</p>
-                <p className="item-price">
-                  Giá tiền:{" "}
-                  {item.price.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </p>
-                <p className="item-total">
-                  Tổng tiền:{" "}
-                  {(item.price * item.quantity).toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </p>
+          {cart.map((item) => {
+            // Tính giá sau khi discount
+            const discountedPrice = item.discount > 0
+              ? item.price * (1 - item.discount / 100)
+              : item.price;
+
+            // Tính tổng giá trị sau khi discount
+            const totalPrice = discountedPrice * item.quantity;
+            return (
+              <div key={item.id} className="cart-item">
+                <img src={item.image} alt={item.name} className="product-image" />
+                <div className="item-details">
+                  <p className="item-name">{item.name}</p>
+                  <p className="item-quantity">Số lượng đặt: {item.quantity}</p>
+                  <p className="item-price">
+                    Giá tiền:
+                    {discountedPrice.toLocaleString("vi-VN")} VND
+                  </p>
+                  <p className="item-total">
+                    Tổng tiền:
+                    {totalPrice.toLocaleString("vi-VN")} VND
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
         <div className="total">
           <div className="total-1">
             <div>Đơn giá</div>
             <div className="red">
-              {calculateTotal().toLocaleString("vi-VN", {
-                style: "currency",
-                currency: "VND",
-              })}
+              {calculateTotal().toLocaleString("vi-VN")} VND
             </div>
           </div>
           <div className="line"></div>
           <div className="total-1">
             <div>Thành tiền</div>
             <div className="red">
-              {calculateTotal().toLocaleString("vi-VN", {
-                style: "currency",
-                currency: "VND",
-              })}
+              {calculateTotal().toLocaleString("vi-VN")} VND
             </div>
           </div>
           <button className="btn-buy" onClick={handleSubmit}>Đặt hàng</button>
@@ -200,7 +202,7 @@ const Checkout = () => {
               </div>
               <div className="inner">
                 <label>Ghi chú</label>
-                <textarea name="note" rows={2} cols={10} value={formData.note} onChange={handleChange}></textarea>
+                <textarea name="note" rows={2} cols={10} value={formData.note} onChange={handleChange} placeholder="Để lại yêu cầu với đơn hàng."></textarea>
               </div>
             </form>
           </div>

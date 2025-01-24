@@ -42,7 +42,7 @@ const Checkout = () => {
     setModalIsOpen(false);
   };
 
-    const calculateTotal = () => {
+  const calculateTotal = () => {
     return cart.reduce((acc, item) => {
       // Tính giá sau discount cho mỗi sản phẩm
       const discountedPrice = item.discount > 0
@@ -110,6 +110,7 @@ const Checkout = () => {
                 <div className="item-details">
                   <p className="item-name">{item.name}</p>
                   <p className="item-quantity">Số lượng đặt: {item.quantity}</p>
+                  <p>Size: {item.size}</p>
                   <p className="item-price">
                     Giá tiền:
                     {discountedPrice.toLocaleString("vi-VN")} VND

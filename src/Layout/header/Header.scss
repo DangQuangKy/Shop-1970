@@ -1,13 +1,13 @@
 .header{
     width: 100%;
-    height: 60px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: burlywood;
     position: fixed;
-    top: 0;
-    z-index: 1000;
+    top: 60px;
+    z-index: 999;
     .logo{
         float: left;
         img{
@@ -123,4 +123,10 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
+  }
+
+  .slider-sticky{
+    position: sticky;
+    top: 0;
+    z-index: 99999
   }

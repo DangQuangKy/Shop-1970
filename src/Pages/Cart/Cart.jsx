@@ -64,12 +64,12 @@ const Cart = () => {
       const discountedPrice = item.discount > 0
         ? item.price * (1 - item.discount / 100)
         : item.price;
-  
+
       // Cộng dồn tổng giá trị (discountedPrice * số lượng)
       return acc + discountedPrice * item.quantity;
     }, 0);
   };
-  
+
   if (cart.length === 0) {
     return (
       <div className="empty-cart">

@@ -47,40 +47,40 @@ function ProductDetail() {
       setCount(count - 1);
     }
   };
-   // size
-   const handleSizeClick = (size) => {
+  // size
+  const handleSizeClick = (size) => {
     setSelectedSize(size);
   };
   // hành động thêm giỏ hàng sẽ hiện ra thông báo
   const handleAddToCart = (product) => {
     if (!selectedSize) {
       setNotificationMessage(
-        <span style={{ color: '#B22222'}}>Vui lòng chọn kích thước sản phẩm!</span>
+        <span style={{ color: '#B22222' }}>Vui lòng chọn kích thước sản phẩm!</span>
       );
       setShowNotification(true);
-      return; 
+      return;
     }
-  
+
     const discountedPrice = product.discount > 0
       ? product.price * (1 - product.discount / 100)
       : product.price;
-  
+
     const totalPrice = discountedPrice * count;
-      dispatch(addProduct({
-        id: product.id,
-        name: product.name,
-        quantity: count,
-        price: totalPrice,
-        size: selectedSize,
-        ...product,
-      }));
-    
+    dispatch(addProduct({
+      id: product.id,
+      name: product.name,
+      quantity: count,
+      price: totalPrice,
+      size: selectedSize,
+      ...product,
+    }));
+
     setNotificationMessage(
       <span>Đã thêm <span style={{ color: '#B22222' }}>{product.name}</span> vào giỏ hàng!</span>
     );
     setShowNotification(true);
   };
- 
+
 
   return (
     <div>

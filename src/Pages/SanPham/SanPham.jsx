@@ -3,8 +3,6 @@ import "./SanPham.scss";
 import { faAngleDown, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
-import { addProduct } from "../../Redux/slice/cartSlice";
-import Notification from "../../Components/Notification/Notification";
 import Card from "../../Components/Card/Card";
 import { useNavigate } from "react-router-dom";
 import useDocumentTitle from "../../Hooks/useDocumentTitle";
@@ -14,8 +12,6 @@ function SanPham() {
   const [sortedProducts, setSortedProducts] = useState([]);
   const [isRotated, setIsRotated] = useState(false);
   const [isListVisible, setIsListVisible] = useState(false);
-  const [showNotification, setShowNotification] = useState(false); // Trạng thái thông báo
-  const [notificationMessage, setNotificationMessage] = useState(''); // Nội dung thông báo
   const dispatch = useDispatch();
   const CartProducts = useSelector(state => state.cart.CartArr);
   const navigate = useNavigate()

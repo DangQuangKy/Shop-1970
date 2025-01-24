@@ -20,7 +20,7 @@ const TitleSlider = () => {
     <div className="slider-container">
       <Slider {...settings}>
         <div>
-            <h2>Tặng 10% khuyến mãi trị giá <span className='title-red'>500,000 VND</span> cho đơn hàng trên <span className='title-red'>10 triệu VND</span></h2>
+            <h2>Tặng <span className='title-red'>10%</span> khuyến mãi trị giá <span className='title-red'>500,000 VND</span> cho đơn hàng trên <span className='title-red'>10 triệu VND</span></h2>
         </div>
         <div>
           <h2>UP TO <span className='title-red'>55%</span> OFF BLACK FRIDAY <span className='title-red'>SALE</span></h2>
